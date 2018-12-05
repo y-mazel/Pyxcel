@@ -1,0 +1,153 @@
+2018-11-08 update
+
+What's new:
+
+Clean Python 2 reinstall on the development PC : Python 2.7.15 32 bits version + PyQt4.11.4-32bits.
+For PyQt4 to be functionning, Python2 & PyQt4 both need to be 32 bits.
+Some bugs seem to have disappeared following the reinstallation.
+
+YM
+
+-------------------------------------------------------------------------
+
+2018-10-25 update
+
+What's new:
+
+Bug correction:
+_Database could not be saved if path contained non-ascii characters (eg: é,...), it is now compatible with the utf-8 unicode set
+_log2d cost function was bugged, XRR fits should be more consistant from now on
+_Bug Identification : first line of the XRF data files must not contain '.' (decimal point character), use a header line
+_Compound units (g/cm3) induced a bug when trying to save a database, they are now supported
+
+YM
+
+-------------------------------------------------------------------------
+
+2018-10-23 update
+
+What's new:
+
+Bug correction:
+_Fixed error in log2d optimization (XRR)
+_XRR / GiXRF instruments units are back
+_Units added in the labels of the stack editor column headers
+_Simulations could be saved on the local drive but not the network, it is now functional for both
+
+YM
+
+-------------------------------------------------------------------------
+
+
+2018-10-19 update
+
+What's new:
+
+Full English translation. Language preference, which lead to partial translations, has been removed.
+
+YM
+
+-------------------------------------------------------------------------
+
+2018-06-19 update
+
+What's new:
+
+Database save restored.
+Minor fixes regarding displayed significant figures.
+
+To do:
+
+Conversion to Python 3 + pyQt 5 for cleaner user interface.
+
+YM
+
+-------------------------------------------------------------------------
+
+2018-06-01 update
+
+What's new:
+
+The fitting of multiple stoichiometric coefficients on the same material was bugged, it is now operational.
+Recall of fitted parameters after a database was saved and reopened was not functionning, it is now operational.
+Most occuring typos have been corrected.
+FOMs graphics now only display integer x values (iteration axis).
+Application icon has been added so that Medepy (or PyXCEL) is now easier to spot on the Windows taskbar.
+
+YM
+
+--------------------------------------------------------------------------
+
+2018-05-17 update
+
+What's new:
+
+Import of old databases is now operational (infinite values issue fixed).
+Some menus would not open in the previous compiled version, the problem has been fixed.
+
+To do:
+Executable directory is still too large.
+
+YM
+
+--------------------------------------------------------------------------
+2018-03-29 update
+
+What's new:
+
+Following conflicts between Java versions required by Eyelit & Eclipse, an executable file has been created.
+Eclipse, and thus a recent Java version, are not required anymore to run Medepy. 
+_At this point, only Medepy contributors should get the source code (ie: everything except the "Medepy_xxx_build.7z" archive). 
+_Regular Medepy users should only open the "Medepy_xxx_build.7z" and unpack it on their local drive. Medepy is launched with "main.exe".
+.7z files open with 7-zip file manager (available in Centre Logiciel located on your Windows Desktop).
+Libraries installation is not required for the end users.
+
+Notes :
+
+_Build has been compressed in a .7z archive due to long file names limitation on S:\.
+_Source code compilation (freezing) using cx_freeze.
+Usage : <in a terminal @ medepy src directory> python setup.py build
+Hint : if python 2 & 3 are installed on your computer, you can force python 2 compilation (which is necessary) with :
+<in a terminal @ medepy src directory> py -2 setup.py build
+
+To do :
+
+"build" directory is pretty large (~760 MB) due to the inclusion of unnecessary librairies.
+"build/lib" directory should be skimmed to the minimum required in forthcoming versions.
+
+YM
+
+-------------------------------------------------------------------------
+2018-03-16
+
+What's new:
+
+_Stoichiometry fitting is functional.
+_Density and stoichiometry profiles are functional (how to in user manual).
+_Scipy optimization was converging earlier than expected in previous versions.
+In this version scipy is forced to complete the desired number of iterations.
+Scipy optimization should now be preferred over inspyred.
+Starting from this Medepy version, scipy libraries should be updated to support
+this feature (see notes below).
+_X-ray standing waves field is functional (how to in user manual).
+
+Installation:
+
+Copy the Medepy folder on your hard drive to prevent any modification of the backup archive.
+Install in Eclipse via File->Import->Import Projects from File System or Archive and point
+on your local copy of the Medepy folder.
+
+Notes:
+
+How to upgrade Scipy:
+The easiest way to upgrade scipy as well as its dependancies (numpy, ...) is to use pip,
+the built-in python package manager (Python 2 >= 2.7.9, Python 3 >= 3.4).
+Open a terminal: (Windows key + R), type "cmd" to open a terminal.
+If Python 2.7 is installed in the default installation folder, it should be located in
+C:\Python27, pip is located in the Scripts subfolder. Adapt the following command line
+depending on your Python 2 installation folder.
+In the terminal, type or copy/paste "C:\Python27\Scripts\pip install scipy –upgrade"
+(omitting the quotation marks) and press ENTER. Scipy and its dependancies will automatically 
+be upgraded to their latest stable version.
+
+YM
